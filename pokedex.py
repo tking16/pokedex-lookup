@@ -14,7 +14,7 @@ def format_dex(p_name):
     pokemon_name = html.find("div", class_="pokedex-pokemon-pagination-title").div.text
     pokemon_information = html.find("p", class_="version-y").string
     import pdb; pdb.set_trace()
-    print(pokemon_name)
-    print(pokemon_information)
+    print(pokemon_name.strip())
+    print(pokemon_information.strip())
 
 format_dex(input("Enter Pokèmon Name: "))
