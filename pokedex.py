@@ -11,10 +11,9 @@ def pokemon_name():
 def format_dex(p_name):
     pokedex = urlopen(f"https://www.pokemon.com/uk/pokedex/{p_name}")
     html = BeautifulSoup(pokedex, 'html.parser')
-    pokemon_name = html.find("div", class_="pokedex-pokemon-pagination-title").div.text
+    pokemon_name = html.find("div", class_="pokedex-pokemon-pagination-title").div.find(text=True)
     pokemon_information = html.find("p", class_="version-y").string
-    import pdb; pdb.set_trace()
-    print(pokemon_name.strip())
-    print(pokemon_information.strip())
+    print("\n"+"\t" + "\t" + pokemon_name.strip() + "\n")
+    print(pokemon_information.strip()+"\n")
 
 format_dex(input("Enter Pokèmon Name: "))
